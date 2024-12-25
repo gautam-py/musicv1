@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import yt_dlp
+import subprocess
 
 app = Flask(__name__)
 
@@ -16,7 +17,8 @@ def get_audio():
         # Set yt-dlp options to simulate the download and avoid downloading files
         ydl_opts = {
             'quiet': True,  # Suppress output
-            'simulate': True  # Simulate download (don't actually download files)
+            'simulate': True,  # Simulate download (don't actually download files)
+            'cookies-from-browser': 'chrome'  # Automatically extract cookies from Chrome
         }
 
         # Initialize yt-dlp
@@ -56,7 +58,8 @@ def search_video():
         # Set yt-dlp options to simulate a search and avoid downloading the video
         ydl_opts = {
             'quiet': True,  # Suppress output
-            'simulate': True  # Simulate download (don't actually download files)
+            'simulate': True,  # Simulate download (don't actually download files)
+            'cookies-from-browser': 'chrome'  # Automatically extract cookies from Chrome
         }
         
         # Initialize yt-dlp
