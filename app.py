@@ -5,7 +5,7 @@ import subprocess
 app = Flask(__name__)
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return 'hello world'
 
 
 @app.route('/api/get_mp3', methods=['POST'])
